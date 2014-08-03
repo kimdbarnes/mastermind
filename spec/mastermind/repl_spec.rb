@@ -22,7 +22,6 @@ module Mastermind
       input.puts 'q'
       input.rewind
 
-
       Repl.new(output, input).start
 
       to_array(output)[0..2].should == welcome_message_parts

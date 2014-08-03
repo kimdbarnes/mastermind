@@ -11,7 +11,7 @@
     <file path="/mastermind_repl.rb" changelist="5425ccb0-4555-4f93-915e-5383bf59369f" time="1406929928514" ignored="false" />
     <file path="/repl.rb" changelist="5425ccb0-4555-4f93-915e-5383bf59369f" time="1407019161765" ignored="false" />
     <file path="/kernel.rb" changelist="5425ccb0-4555-4f93-915e-5383bf59369f" time="1407010696670" ignored="false" />
-    <file path="/repl_spec.rb" changelist="5425ccb0-4555-4f93-915e-5383bf59369f" time="1407018361166" ignored="false" />
+    <file path="/repl_spec.rb" changelist="5425ccb0-4555-4f93-915e-5383bf59369f" time="1407084081827" ignored="false" />
     <file path="/game.rb" changelist="5425ccb0-4555-4f93-915e-5383bf59369f" time="1407020005625" ignored="false" />
     <file path="/game_spec.rb" changelist="5425ccb0-4555-4f93-915e-5383bf59369f" time="1407020107204" ignored="false" />
     <file path="/fragment.rb" changelist="5425ccb0-4555-4f93-915e-5383bf59369f" time="1407018006779" ignored="false" />
@@ -37,19 +37,19 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="repl_spec.rb" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="repl_spec.rb" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/spec/mastermind/repl_spec.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
+                <state line="7" column="27" selection-start="149" selection-end="157" vertical-scroll-proportion="0.13755459">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="game_spec.rb" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="game_spec.rb" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/spec/mastermind/game_spec.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="60" column="49" selection-start="1743" selection-end="1743" vertical-scroll-proportion="0.9148265">
+                <state line="60" column="49" selection-start="1743" selection-end="1743" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -62,25 +62,25 @@
           <file leaf-file-name="repl.rb" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/mastermind/repl.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="41" column="22" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0">
+                <state line="1" column="12" selection-start="26" selection-end="30" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="mastermind.sh" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="mastermind.sh" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/mastermind/mastermind.sh">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="3" column="16" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
+                <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="game.rb" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="game.rb" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/mastermind/game.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="7" selection-start="275" selection-end="275" vertical-scroll-proportion="0.36908516">
+                <state line="1" column="12" selection-start="26" selection-end="30" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -104,10 +104,10 @@
         <option value="$PROJECT_DIR$/spec/mastermind_repl_spec.rb" />
         <option value="$APPLICATION_HOME_DIR$/rubystubs20/kernel.rb" />
         <option value="$PROJECT_DIR$/lib/mastermind/mastermind.sh" />
-        <option value="$PROJECT_DIR$/spec/mastermind/repl_spec.rb" />
         <option value="$PROJECT_DIR$/lib/mastermind/repl.rb" />
         <option value="$PROJECT_DIR$/spec/mastermind/game_spec.rb" />
         <option value="$PROJECT_DIR$/lib/mastermind/game.rb" />
+        <option value="$PROJECT_DIR$/spec/mastermind/repl_spec.rb" />
       </list>
     </option>
   </component>
@@ -464,7 +464,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39916405" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30825496" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37772086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -544,27 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mastermind/repl.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="22" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mastermind/mastermind.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="16" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/mastermind/repl_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/rubystubs20/kernel.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="430" column="8" selection-start="16461" selection-end="16480" vertical-scroll-proportion="0.5797101">
@@ -574,14 +553,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/mastermind/game_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="49" selection-start="1743" selection-end="1743" vertical-scroll-proportion="0.9148265">
+        <state line="60" column="49" selection-start="1743" selection-end="1743" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/mastermind/game.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="7" selection-start="275" selection-end="275" vertical-scroll-proportion="0.36908516">
+        <state line="1" column="12" selection-start="26" selection-end="30" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mastermind/repl.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="12" selection-start="26" selection-end="30" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mastermind/mastermind.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/mastermind/repl_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="27" selection-start="149" selection-end="157" vertical-scroll-proportion="0.13755459">
           <folding />
         </state>
       </provider>
