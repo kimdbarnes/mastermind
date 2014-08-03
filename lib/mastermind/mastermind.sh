@@ -3,4 +3,4 @@
 require_relative 'repl.rb'
 require_relative 'game.rb'
 
-Mastermind::Repl.new.start
+Mastermind::Repl.new.run

@@ -5,7 +5,7 @@ module Mastermind
       @input = input
     end
 
-    def start
+    def run
       _welcome_player
 
       while (command = _gets) != 'q' do
@@ -36,14 +36,13 @@ module Mastermind
       game = Mastermind::Game.new
 
       _puts 'I have generated a beginner sequence with four elements made up of: (r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.'
-      _puts "What's your guess?"
 
       while (response = _gets) != 'q' do
+        _puts "What's your guess?"
         correct = game.correct_guess?(response)
         if correct
           _puts 'That is right!'
         end
-        _puts "What's your guess?"
       end
 
       _puts 'See ya!'
