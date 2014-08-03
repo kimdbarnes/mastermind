@@ -1,0 +1,3 @@
+mastermind
+==========
+Start of mastermind!
