@@ -13,14 +13,12 @@ module Mastermind
     end
 
     def correct_colors(guess)
-      sort(guess).collect.with_index do |guess_char, i|
-        guess_char == sort(code)[i]
-      end.select{|match| match}.count
+      normalize(guess).zip(normalize(code)).select { |a,b| a == b }.length
     end
 
     private
 
-    def sort(text)
+    def normalize(text)
       text.downcase.chars.sort
     end
   end
