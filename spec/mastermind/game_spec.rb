@@ -68,5 +68,22 @@ module Mastermind
         expect(game.correct_colors('YBGR')).to eq(4)
       end
     end
+
+    describe 'guessing location' do
+      it 'should not count incorrect locations' do
+        game = Game.new('rggg')
+        expect(game.correct_locations('bbbr')).to eq(0)
+      end
+
+      it 'should count correct locations' do
+        game = Game.new('rggg')
+        expect(game.correct_locations('rbbb')).to eq(1)
+      end
+
+      it 'should count duplicates as only one correct location' do
+        game = Game.new('rggg')
+        expect(game.correct_locations('rrrr')).to eq(1)
+      end
+    end
   end
 end
