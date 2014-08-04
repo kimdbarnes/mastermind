@@ -8,9 +8,10 @@ module Mastermind
     let(:output) { StringIO.new }
     let(:welcome_message_parts) do
       [
+        '',
         'Welcome to MASTERMIND',
         'Would you like to (p)lay, read the (i)nstructions, or (q)uit?',
-        '>'
+        '> '
       ]
     end
 
@@ -24,7 +25,7 @@ module Mastermind
 
       Repl.new(output, input).run
 
-      to_array(output)[0..2].should == welcome_message_parts
+      to_array(output)[0..4].should == welcome_message_parts
     end
 
     it 'should quit' do
@@ -41,7 +42,7 @@ module Mastermind
       input.puts 'q'
       input.rewind
 
-      Repl.new(STDOUT, input).run
+      Repl.new(output, input).run
     end
 
     it 'should print instructions' do
@@ -51,86 +52,94 @@ module Mastermind
 
       Repl.new(output, input).run
 
-      to_array(output).last.should == 'Here is how to play...'
-    end
-
-    it 'should loop' do
-      times_to_loop = 15
-
-      times_to_loop.times do
-        input.puts 'i'
-      end
-      input.puts 'q'
-      input.rewind
-
-      Repl.new(output, input).run
-
-      to_array(output).length.should == times_to_loop + welcome_message_parts.size
+      to_array(output).include?('> Here is how to play...').should be_true
     end
 
     describe 'playing the game' do
-      it 'should play a game' do
+      it 'should tell the player when they guess right' do
         input.puts 'p'
-        input.puts 'r'
+        input.puts 'rrrr'
         input.puts 'q'
         input.puts 'q'
         input.rewind
 
         game = double('game')
-        game.should_receive(:correct_guess?).with('r').and_return(true)
+        game.should_receive(:correct_guess?).with('rrrr').and_return(true)
+        game.stub(:code)
         Mastermind::Game.should_receive(:new).and_return(game)
 
         Repl.new(output, input).run
 
-        to_array(output)[3..6].should == [
-          'I have generated a beginner sequence with four elements made up of: (r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.',
-          "What's your guess?",
-          'That is right!',
-          'See ya!'
-        ]
+        contains_message?(output, 'That is right!').should be_true
       end
 
       it 'should tell the player if they guess wrong' do
         input.puts 'p'
-        input.puts 'r'
+        input.puts 'rrrr'
         input.puts 'q'
         input.puts 'q'
         input.rewind
 
         game = double('game')
-        game.stub(:correct_guess?).with('r').and_return(false)
+        game.stub(:correct_guess?).with('rrrr').and_return(false)
+        game.stub(:code)
         Mastermind::Game.should_receive(:new).and_return(game)
 
         Repl.new(output, input).run
 
-        to_array(output)[-2..-1].should == ['Sorry, Charlie!', 'See ya!']
+        contains_message?(output, 'Sorry, Charlie!').should be_true
       end
 
       it 'should keep playing until the user quits' do
         input.puts 'p'
         10.times do
-          input.puts 'r'
+          input.puts 'rrrr'
         end
         input.puts 'q'
         input.puts 'q'
         input.rewind
 
         game = double('game')
-        game.should_receive(:correct_guess?).exactly(10).times.with('r').and_return(false)
+        game.should_receive(:correct_guess?).exactly(10).times.with('rrrr').and_return(false)
+        game.stub(:code)
         Mastermind::Game.should_receive(:new).and_return(game)
 
         Repl.new(output, input).run
 
-        to_array(output).length.should == 25
-        to_array(output).last.should == 'See ya!'
+        contains_message?(output, 'See ya!').should be_true
       end
 
-      it 'should give error if guess is too short'
-      it 'should give error if guess is too long'
+      it 'should give error if guess is too short' do
+        input.puts 'p'
+        input.puts 'r'
+        input.puts 'q'
+        input.puts 'q'
+        input.rewind
+
+        Repl.new(output, input).run
+
+        contains_message?(output, 'Guess is too short, must be 4 characters').should be_true
+      end
+
+      it 'should give error if guess is too long' do
+        input.puts 'p'
+        input.puts 'rrrrr'
+        input.puts 'q'
+        input.puts 'q'
+        input.rewind
+
+        Repl.new(output, input).run
+
+        contains_message?(output, 'Guess is too long, must be 4 characters').should be_true
+      end
     end
 
     def to_array(output)
       output.string.split("\n")
+    end
+
+    def contains_message?(output, message)
+      to_array(output).any? {|output_line| output_line.include?(message) }
     end
   end
 end

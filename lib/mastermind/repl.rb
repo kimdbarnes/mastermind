@@ -15,6 +15,7 @@ module Mastermind
           when 'p'
             play
         end
+        welcome_player
       end
     end
 
@@ -25,9 +26,10 @@ module Mastermind
     end
 
     def welcome_player
+      puts ''
       puts 'Welcome to MASTERMIND'
       puts 'Would you like to (p)lay, read the (i)nstructions, or (q)uit?'
-      puts '>'
+      print '> '
     end
 
     def play
@@ -35,16 +37,45 @@ module Mastermind
 
       puts 'I have generated a beginner sequence with four elements made up of: (r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.'
 
-      while (response = gets) != 'q' do
-        puts "What's your guess?"
-        puts (game.correct_guess?(response) ? 'That is right!' : 'Sorry, Charlie!')
+      while true do
+        print "What's your guess? "
+        response = gets
+        case response
+          when 'q'
+            break
+          else
+            if too_short?(response)
+              puts 'Guess is too short, must be 4 characters'
+            elsif too_long?(response)
+              puts 'Guess is too long, must be 4 characters'
+            else
+              if game.correct_guess?(response)
+                puts 'That is right!'
+                break
+              else
+                puts 'Sorry, Charlie!'
+              end
+            end
+        end
       end
 
-      puts 'See ya!'
+      puts "The correct answer was '#{game.code}'. See ya!"
+    end
+
+    def too_short?(guess)
+      guess.length < Mastermind::Game::CODE_SIZE
+    end
+
+    def too_long?(guess)
+      guess.length > Mastermind::Game::CODE_SIZE
     end
 
     def puts(message)
       @output.puts message
+    end
+
+    def print(message)
+      @output.print message
     end
 
     def gets
