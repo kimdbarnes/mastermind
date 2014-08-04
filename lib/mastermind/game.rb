@@ -2,8 +2,10 @@ module Mastermind
   class Game
     attr_reader :code
 
+    CODE_SIZE = 4
+
     def initialize(code = nil)
-      @code = code || 4.times.collect { 'rgby'.chars.sample }.join
+      @code = code || CODE_SIZE.times.collect { 'rgby'.chars.sample }.join
     end
 
     def correct_guess?(guess)
@@ -11,11 +13,15 @@ module Mastermind
     end
 
     def correct_colors(guess)
-      number_correct = 0
-      guess.downcase.chars.sort.each_with_index do |letter, i|
-        number_correct = number_correct + 1 if letter == code.chars.sort[i]
-      end
-      number_correct
+      sort(guess).collect.with_index do |guess_char, i|
+        guess_char == sort(code)[i]
+      end.select{|match| match}.count
+    end
+
+    private
+
+    def sort(text)
+      text.downcase.chars.sort
     end
   end
 end

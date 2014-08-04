@@ -22,7 +22,7 @@ module Mastermind
       input.puts 'q'
       input.rewind
 
-      Repl.new(output, input).start
+      Repl.new(output, input).run
 
       to_array(output)[0..2].should == welcome_message_parts
     end
@@ -31,16 +31,17 @@ module Mastermind
       input.puts 'q'
       input.rewind
 
-      Repl.new(output, input).start
+      Repl.new(output, input).run
     end
 
     it 'should read user input' do
       input = StringIO.new
       input.puts 'p'
       input.puts 'q'
+      input.puts 'q'
       input.rewind
 
-      Repl.new(STDOUT, input).start
+      Repl.new(STDOUT, input).run
     end
 
     it 'should print instructions' do
@@ -48,7 +49,7 @@ module Mastermind
       input.puts 'q'
       input.rewind
 
-      Repl.new(output, input).start
+      Repl.new(output, input).run
 
       to_array(output).last.should == 'Here is how to play...'
     end
@@ -62,7 +63,7 @@ module Mastermind
       input.puts 'q'
       input.rewind
 
-      Repl.new(output, input).start
+      Repl.new(output, input).run
 
       to_array(output).length.should == times_to_loop + welcome_message_parts.size
     end
@@ -72,19 +73,37 @@ module Mastermind
         input.puts 'p'
         input.puts 'r'
         input.puts 'q'
+        input.puts 'q'
         input.rewind
 
         game = double('game')
         game.should_receive(:correct_guess?).with('r').and_return(true)
         Mastermind::Game.should_receive(:new).and_return(game)
 
-        Repl.new(output, input).start
+        Repl.new(output, input).run
 
-        to_array(output)[-3..-1].should == [
+        to_array(output)[3..6].should == [
           'I have generated a beginner sequence with four elements made up of: (r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.',
           "What's your guess?",
-          'That is right!'
+          'That is right!',
+          'See ya!'
         ]
+      end
+
+      it 'should tell the player if they guess wrong' do
+        input.puts 'p'
+        input.puts 'r'
+        input.puts 'q'
+        input.puts 'q'
+        input.rewind
+
+        game = double('game')
+        game.stub(:correct_guess?).with('r').and_return(false)
+        Mastermind::Game.should_receive(:new).and_return(game)
+
+        Repl.new(output, input).run
+
+        to_array(output)[-2..-1].should == ['Sorry, Charlie!', 'See ya!']
       end
 
       it 'should keep playing until the user quits' do
@@ -100,9 +119,9 @@ module Mastermind
         game.should_receive(:correct_guess?).exactly(10).times.with('r').and_return(false)
         Mastermind::Game.should_receive(:new).and_return(game)
 
-        Repl.new(output, input).start
+        Repl.new(output, input).run
 
-        to_array(output).length.should == 16
+        to_array(output).length.should == 25
         to_array(output).last.should == 'See ya!'
       end
 
