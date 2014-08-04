@@ -11,11 +11,9 @@ module Mastermind
     def correct_guess?(guess)
       guess.downcase == code.downcase
     end
-
+   
     def correct_colors(guess)
-      sort(guess).collect.with_index do |guess_char, i|
-        guess_char == sort(code)[i]
-      end.select{|match| match}.count
+      sort(guess).zip(sort(code)).select { |a,b| a == b }.size
     end
 
     private

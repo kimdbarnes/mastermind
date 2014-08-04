@@ -17,17 +17,17 @@ module Mastermind
 
     it 'should tell the user if s/he guesses wrong' do
       game = Game.new('rgby')
-      game.correct_guess?('ybgr').should be_false
+      expect(game.correct_guess?('ybgr')).to eq(false)
     end
 
     it 'should tell the user if s/he guesses right' do
       game = Game.new('rgby')
-      game.correct_guess?('rgby').should be_true
+      expect(game.correct_guess?('rgby')).to eq(true)
     end
 
     it 'should allow mixed case guesses' do
       game = Game.new('RGBY')
-      game.correct_guess?('rgby').should be_true
+      expect(game.correct_guess?('rgby')).to eq(true)
     end
 
     describe 'guessing colors' do
