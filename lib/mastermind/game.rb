@@ -11,14 +11,14 @@ module Mastermind
     def correct_guess?(guess)
       guess.downcase == code.downcase
     end
-   
+
     def correct_colors(guess)
-      sort(guess).zip(sort(code)).select { |a,b| a == b }.size
+      normalize(guess).zip(normalize(code)).select { |a,b| a == b }.length
     end
 
     private
 
-    def sort(text)
+    def normalize(text)
       text.downcase.chars.sort
     end
   end
